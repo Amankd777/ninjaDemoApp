@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
+
+class SignUpStep2Screen extends StatefulWidget {
+  final String phoneNumber;
+
+  SignUpStep2Screen({required this.phoneNumber});
+
+  @override
+  _SignUpStep2ScreenState createState() => _SignUpStep2ScreenState();
+}
+
+class _SignUpStep2ScreenState extends State<SignUpStep2Screen> {
+  final TextEditingController _otpController = TextEditingController();
+  String _errorMessage = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign Up - Step 2'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              controller: _otpController,
+              decoration: InputDecoration(labelText: 'OTP'),
+            ),
+            ElevatedButton(
+              onPressed: () => _verifyOtp(),
+              child: Text('Verify'),
+            ),
+            if (_errorMessage.isNotEmpty)
+              Text(
+                _errorMessage,
+                style: TextStyle(color: Colors.red),
+              ),
+          ],
+        ),
+      ),
+    );
+  }

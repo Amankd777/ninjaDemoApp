@@ -1,0 +1,16 @@
+{
+  "trigger": true,
+  "modules": [
+    "boilerplate-create-challenge"
+  ],
+  "parentResource": "ninjademoe0ca0c39e0ca0c39",
+  "functionName": "ninjademoe0ca0c39e0ca0c39CreateAuthChallenge",
+  "resourceName": "ninjademoe0ca0c39e0ca0c39CreateAuthChallenge",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "/snapshot/amplify-cli/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/CreateAuthChallenge",
+  "triggerTemplate": "CreateAuthChallenge.json.ejs",
+  "triggerEventPath": "CreateAuthChallenge.event.json",
+  "roleName": "ninjademoe0ca0c39e0ca0c39CreateAuthChallenge",
+  "skipEdit": true
+}

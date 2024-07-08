@@ -1,0 +1,126 @@
+{
+  "auth": {
+    "ninjademoe0ca0c39e0ca0c39": {
+      "customAuth": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39CreateAuthChallenge",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39DefineAuthChallenge",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39VerifyAuthChallengeResponse",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "NAME",
+          "PHONE_NUMBER"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "PHONE_NUMBER"
+        ],
+        "verificationMechanisms": [
+          "PHONE_NUMBER"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "ninjademoe0ca0c39e0ca0c39CreateAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "ninjademoe0ca0c39e0ca0c39DefineAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "ninjademoe0ca0c39e0ca0c39VerifyAuthChallengeResponse": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_ninjademoe0ca0c39e0ca0c39CreateAuthChallenge_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39CreateAuthChallenge"
+        }
+      ]
+    },
+    "AMPLIFY_function_ninjademoe0ca0c39e0ca0c39CreateAuthChallenge_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39CreateAuthChallenge"
+        }
+      ]
+    },
+    "AMPLIFY_function_ninjademoe0ca0c39e0ca0c39DefineAuthChallenge_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39DefineAuthChallenge"
+        }
+      ]
+    },
+    "AMPLIFY_function_ninjademoe0ca0c39e0ca0c39DefineAuthChallenge_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39DefineAuthChallenge"
+        }
+      ]
+    },
+    "AMPLIFY_function_ninjademoe0ca0c39e0ca0c39VerifyAuthChallengeResponse_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39VerifyAuthChallengeResponse"
+        }
+      ]
+    },
+    "AMPLIFY_function_ninjademoe0ca0c39e0ca0c39VerifyAuthChallengeResponse_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ninjademoe0ca0c39e0ca0c39VerifyAuthChallengeResponse"
+        }
+      ]
+    }
+  }
+}
