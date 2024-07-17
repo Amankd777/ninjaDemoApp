@@ -1,8 +1,11 @@
+import 'package:ninja_demo/phone_number.dart';
+
 import 'quote_card.dart';
 import 'package:flutter/material.dart';
 import 'quotes.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -137,6 +140,15 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 IconButton(
+                  onPressed: () async {
+              await _signOut(context);
+            },
+                  icon: const Icon(
+                    Icons.logout,
+                    color: Colors.yellow,
+                  ),
+                ),
+                IconButton(
                   onPressed: () {
                     var options = {
                       'key': 'rzp_test_GcZZFDPP0jHtC4',
@@ -232,10 +244,24 @@ class _HomeState extends State<Home> {
     );
   }
 
+  Future<void> _signOut(BuildContext context) async {
+    try {
+      await Amplify.Auth.signOut();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => PhoneNumberPage()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error signing out: ${e.toString()}')),
+      );
+    }
+  }
+
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
     Fluttertoast.showToast(msg: "Payment Successful");
     setState(() {
-      ninjaLevel=50;
+      ninjaLevel = 50;
     });
   }
 
